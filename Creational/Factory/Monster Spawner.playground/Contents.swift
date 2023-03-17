@@ -79,8 +79,8 @@ class Spawner {
     }
 }
 
-//let spawner = Spawner(factory: BeholderFactory())
+let spawner = Spawner(factory: BeholderFactory())
 // let spawner = Spawner(factory: ElementalFactory())
-let spawner = Spawner(factory: RandomFactory())
+// let spawner = Spawner(factory: RandomFactory())
 
 spawner.start()
