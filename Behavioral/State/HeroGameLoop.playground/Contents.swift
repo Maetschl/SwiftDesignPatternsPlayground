@@ -22,12 +22,6 @@ class Hero {
         stateMachine.enter(HeroIdleState.self)
     }
     
-    func recover() {
-        if hero.life < 3 {
-            hero.life += 1
-        }
-    }
-    
 }
 
 // State machine is not implemented because the example is using the GameplayKit one.
@@ -44,12 +38,18 @@ class HeroIdleState: GKState {
     }
     
     override func didEnter(from previousState: GKState?) {
-        hero.recover()
+        recover()
         print("🧘 Hero is idle, current life \(hero.life)")
         if Bool.random() {
             hero.stateMachine.enter(HeroIdleState.self)
         } else {
             hero.stateMachine.enter(HeroWalkState.self)
+        }
+    }
+    
+    private func recover() {
+        if hero.life < 3 {
+            hero.life += 1
         }
     }
     
